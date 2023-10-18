@@ -1,0 +1,28 @@
+{% include 'base.html' %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 main">
+      <h2 class="sub-header">登录</h2>
+      <form class="form-horizontal" action="/user/login" method="post">
+        <div class="form-group">
+          <label for="username" >用户名</label>
+          <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="form-group">
+          <label for="password" >密码</label>
+          <input type="password" class="form-control" id="password" name="password" >
+        </div>
+
+        <div class="form-group text-center">
+          <a href="/user/register">
+            <button type="button" class="btn btn-default" data-dismiss="modal">注册</button>
+          </a>
+
+    <!--        修改按钮的类型为 submit-->
+          <button type="submit" class="btn btn-primary">登录</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

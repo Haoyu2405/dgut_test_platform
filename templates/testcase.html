@@ -1,0 +1,60 @@
+
+{% include 'base.html' %}
+
+{% include 'add_testcase.html' %}
+
+
+{% include 'navbar.html' %}
+
+<!--页面主体部分-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 main">
+      <h2 class="sub-header">Section title</h2>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        新增用例
+      </button>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>用例 ID</th>
+              <th>用例名称</th>
+              <th>用例执行步骤</th>
+              <th>用例执行方法</th>
+              <th>用例备注</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+<!--          {{ testcase_list }}-->
+<!--          循环传入的测试用例列表-->
+          {% for case in testcase_list %}
+            <tr>
+              <td>{{ case['id'] }}</td>
+              <td>{{ case['name'] }}</td>
+              <td>{{ case['step'] }}</td>
+              <td>{{ case['method'] }}</td>
+              <td>{{ case['remark'] }}</td>
+<!--              <td>{{ case['expect'] }}</td>-->
+              <td>
+                <a href="/testcase/update/{{ case['id'] }}" style="color:white">
+                  <button type="button" class="btn btn-success">
+                    修改
+                  </button>
+                </a>
+                <a href="/testcase/delete/{{ case['id'] }}" style="color:white">
+                  <button type="button" class="btn btn-danger">
+                    删除
+                  </button>
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

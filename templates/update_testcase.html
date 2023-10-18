@@ -1,0 +1,42 @@
+{% include 'base.html' %}
+
+{% include 'navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 main">
+            <h2 class="sub-header">更新用例</h2>
+            <form class="form-horizontal" action="/testcase/update/{{ testcase.id }}" method="post">
+                <div class="form-group">
+                    <label for="id">用例 ID</label>
+                    <input type="text" class="form-control" id="id" name="id" value="{{ testcase.id }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="name">用例名称</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ testcase.name }}">
+                </div>
+                <div class="form-group">
+                    <label for="step">用例执行步骤</label>
+<!--                    <input type="text" class="form-control" id="step" name="step" value="{{ testcase.step }}">-->
+                      <textarea class="form-control" id="step" name="step" rows="4">{{ testcase.step }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="method">用例执行方法</label>
+                    <input type="text" class="form-control" id="method" name="method" value="{{ testcase.method }}">
+                </div>
+                <div class="form-group">
+                    <label for="remark">用例备注</label>
+                    <input type="text" class="form-control" id="remark" name="remark" value="{{ testcase.remark }}">
+                </div>
+                <div class="form-group text-center">
+                    <a href="/testcase">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </a>
+
+                    <!--        修改按钮的类型为 submit-->
+                    <button type="submit" class="btn btn-primary">更新</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
